@@ -10,9 +10,9 @@ import Foundation
 
 /// Describes a request's pagination properties.
 public struct Pagination {
-    let total: Int
-    let limit: Int
-    let skip: Int
+    public let total: Int
+    public let limit: Int
+    public let skip: Int
 
     public init(total: Int, limit: Int, skip: Int) {
         self.total = total
