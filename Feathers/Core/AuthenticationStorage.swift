@@ -26,8 +26,11 @@ public final class EncryptedAuthenticationStore: AuthenticationStorage {
     public var accessToken: String? {
         get { return keychain.get(storageKey) }
         set {
-            guard let value = newValue else { return }
-            keychain.set(value, forKey: storageKey)
+            if let value = newValue {
+                keychain.set(value, forKey: storageKey)
+            } else {
+                keychain.delete(storageKey)
+            }
         }
     }
 
